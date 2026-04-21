@@ -255,4 +255,7 @@ const OrderTracking = () => {
       </div>
     </div>
   );
+};
+
 export default OrderTracking;
+

@@ -1,0 +1,124 @@
+/* AdminPayments.css */
+
+.payments-page {
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .admin-header-premium {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .header-actions .btn {
+    flex: 1;
+    white-space: nowrap;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+
+  .orders-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-mini-card {
+    padding: 12px !important;
+  }
+
+  .stat-val h3 {
+    font-size: 1.1rem;
+  }
+
+  .stat-val span {
+    font-size: 0.7rem;
+  }
+
+  .table-controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-box-premium {
+    width: 100%;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group select {
+    flex: 1;
+  }
+
+  /* Responsive Table */
+  .premium-table thead {
+    display: none;
+  }
+
+  .premium-table, .premium-table tbody, .premium-table tr, .premium-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .premium-table tr {
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    background: white;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .premium-table td {
+    text-align: right;
+    padding: 8px 5px;
+    position: relative;
+    border: none !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .premium-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .user-cell {
+    flex-direction: row-reverse;
+  }
+
+  .avatar {
+    margin: 0 0 0 10px !important;
+  }
+
+  .user-info {
+    text-align: right;
+  }
+
+  .payment-cell {
+    justify-content: flex-end;
+  }
+
+  .amount-cell {
+    justify-content: flex-end;
+  }
+
+  .action-cell {
+    justify-content: flex-end;
+    border-top: 1px solid var(--border);
+    margin-top: 5px;
+    padding-top: 10px !important;
+  }
+}

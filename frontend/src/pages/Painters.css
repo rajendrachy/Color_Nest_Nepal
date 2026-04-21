@@ -1,0 +1,493 @@
+/* Painters.css - Premium Modern Design */
+
+:root {
+  --painter-primary: #c41e3a;
+  --painter-secondary: #1e293b;
+  --painter-accent: #f59e0b;
+  --painter-glass: rgba(255, 255, 255, 0.9);
+  --painter-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.painters-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Header & Search Section */
+.painters-header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  padding: 100px 0 140px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.painters-header::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(196, 30, 58, 0.15);
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+.painters-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.painters-header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.search-filters-premium {
+  display: flex;
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.search-input-group {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-right: 1px solid #f1f5f9;
+}
+
+.filter-input-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.search-input-group input, .filter-input-group select {
+  border: none;
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 1rem;
+  outline: none;
+  color: var(--painter-secondary);
+}
+
+.btn-search-premium {
+  background: var(--painter-primary);
+  color: white;
+  border: none;
+  padding: 0 35px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-search-premium:hover {
+  background: #a01830;
+  transform: scale(1.02);
+}
+
+/* Grid & Cards */
+.painters-conten.mt-30 { margin-top: 30px; }
+
+/* Professional Journey Guide */
+.painter-guide-section {
+  margin-top: 100px;
+  padding: 80px 0;
+  background: white;
+  border-radius: 40px;
+  border: 1px solid #f1f5f9;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.guide-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--painter-secondary);
+}
+
+.guide-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.guide-step-card {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--painter-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 20px rgba(196, 30, 58, 0.2);
+}
+
+.step-icon-box {
+  width: 80px;
+  height: 80px;
+  background: #f8fafc;
+  color: var(--painter-secondary);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+}
+
+.guide-step-card:hover .step-icon-box {
+  transform: translateY(-5px);
+  background: var(--painter-secondary);
+  color: white;
+}
+
+.guide-step-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--painter-secondary);
+  margin-bottom: 10px;
+}
+
+.guide-step-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .guide-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .guide-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.painters-content {
+  margin-top: -60px;
+  position: relative;
+  z-index: 20;
+}
+
+.painters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.painter-card-premium {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--painter-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.painter-card-premium:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.painter-card-header {
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.painter-avatar-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #f1f5f9;
+}
+
+.painter-avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.painter-main-info h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--painter-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge {
+  color: var(--painter-primary);
+}
+
+.rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fffbeb;
+  color: #b45309;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.painter-body-premium {
+  padding: 0 25px 25px;
+  flex: 1;
+}
+
+.expertise-section {
+  margin-top: 15px;
+}
+
+.expertise-section label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.painter-meta-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.painter-footer-actions {
+  padding: 20px 25px 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-contact-glass {
+  flex: 1;
+  background: #f1f5f9;
+  color: var(--painter-secondary);
+  border: none;
+  padding: 14px;
+  border-radius: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-book-premium {
+  flex: 1.5;
+  background: var(--painter-primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(196, 30, 58, 0.2);
+}
+
+.btn-book-premium:hover {
+  background: #a01830;
+  box-shadow: 0 15px 30px rgba(196, 30, 58, 0.3);
+}
+
+/* Registration Section */
+.painter-join-hero {
+  margin-top: 120px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 80px;
+  border-radius: 40px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.painter-join-hero h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.painter-join-hero p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.btn-join-premium {
+  background: white;
+  color: var(--painter-secondary);
+  padding: 18px 40px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-join-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255,255,255,0.2);
+}
+
+/* Registration Form Premium */
+.registration-glass-card {
+  background: white;
+  padding: 60px;
+  border-radius: 40px;
+  margin-top: 80px;
+  box-shadow: var(--painter-shadow);
+  border: 1px solid #f1f5f9;
+}
+
+.form-premium-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.form-group-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group-premium label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group-premium input {
+  background: #f8fafc;
+  border: 2px solid #f1f5f9;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group-premium input:focus {
+  border-color: var(--painter-primary);
+  background: white;
+  box-shadow: 0 10px 20px rgba(196, 30, 58, 0.05);
+}
+
+/* Modal Booking */
+.booking-modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.booking-success-icon {
+  width: 80px;
+  height: 80px;
+  background: #f0fdf4;
+  color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+@media (max-width: 768px) {
+  .search-filters-premium {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .search-input-group {
+    border-right: none;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .btn-search-premium {
+    padding: 15px;
+    margin-top: 10px;
+  }
+  .form-premium-grid {
+    grid-template-columns: 1fr;
+  }
+  .painters-header h1 {
+    font-size: 2.5rem;
+  }
+}

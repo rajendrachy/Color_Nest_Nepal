@@ -1,0 +1,161 @@
+/* AdminUsersAdvanced.css */
+
+:root {
+  --finance-primary: #c41e3a;
+  --finance-secondary: #1e293b;
+}
+
+.users-advanced-layout {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+}
+
+.users-hero-section {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  padding: 50px 30px 100px;
+  color: white;
+  margin-bottom: -60px;
+  width: 100%;
+}
+
+.users-stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 30px 40px;
+}
+
+.user-stat-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.user-stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon-box.blue { background: #eff6ff; color: #3b82f6; }
+.stat-icon-box.green { background: #f0fdf4; color: #22c55e; }
+.stat-icon-box.purple { background: #faf5ff; color: #a855f7; }
+.stat-icon-box.orange { background: #fff7ed; color: #f97316; }
+
+.user-table-premium {
+  background: white;
+  border-radius: 24px;
+  margin: 0 30px 40px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.modern-user-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.modern-user-table th {
+  text-align: left;
+  padding: 0 15px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+.user-row-premium {
+  background: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.user-row-premium:hover {
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  transform: scale(1.01);
+}
+
+.user-row-premium td {
+  padding: 20px 15px;
+}
+
+.user-row-premium td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
+.user-row-premium td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
+
+.user-profile-flex {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar-lg {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: var(--finance-secondary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.role-badge-pro {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.role-badge-pro.admin { background: #fee2e2; color: #b91c1c; }
+.role-badge-pro.user { background: #dcfce7; color: #15803d; }
+
+@media (max-width: 1024px) {
+  .users-stats-container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .users-advanced-layout { flex-direction: column; }
+  .admin-content { width: 100%; padding: 0; }
+  .users-stats-container { grid-template-columns: 1fr; padding: 0 15px 20px; }
+  .user-table-premium { margin: 0 10px 40px; padding: 20px; }
+  
+  .mobile-user-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+  }
+  
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .card-mid {
+    margin-bottom: 15px;
+  }
+}

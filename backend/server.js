@@ -18,19 +18,38 @@ const deliveryRoutes = require('./routes/deliveryRoutes');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"]
-  }
-});
 
 // Middleware
 app.use(express.json());
+
+
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000'
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
+
+const io = new Server(server, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  }
+});
+
 app.use(morgan('dev'));
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
@@ -77,7 +96,11 @@ io.on('connection', (socket) => {
 app.set('socketio', io);
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to ColorNest Nepal API' });
+});
 app.use('/api/auth', authRoutes);
+
 app.use('/api/paints', paintRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);

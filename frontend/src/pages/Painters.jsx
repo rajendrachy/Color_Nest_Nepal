@@ -73,7 +73,7 @@ const Painters = () => {
       <section className="painters-header">
         <div className="container">
           <div className="badge-pill-light" style={{ display: 'inline-flex', padding: '8px 20px', borderRadius: '100px', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', marginBottom: '20px', fontSize: '0.9rem', fontWeight: '700' }}>
-            <Zap size={16} color="var(--painter-accent)" style={{ marginRight: '8px' }} /> Nippo Verified Professionals
+            <Zap size={16} color="var(--painter-accent)" style={{ marginRight: '8px' }} /> ColorNest Verified Professionals
           </div>
           <h1>Find Your Perfect Master Painter</h1>
           <p>Connect with Nepal's elite network of verified contractors, specialized in luxury finishes and precision coating.</p>
@@ -177,7 +177,7 @@ const Painters = () => {
         <section className="painter-guide-section">
           <div className="guide-header">
             <h2>The Painter's Path to Success</h2>
-            <p>Your journey to becoming a top-rated certified professional with Nippo Paints.</p>
+            <p>Your journey to becoming a top-rated certified professional with Color Nest Paints.</p>
           </div>
           <div className="guide-steps-grid">
             <div className="guide-step-card">
@@ -190,7 +190,7 @@ const Painters = () => {
               <div className="step-number">2</div>
               <div className="step-icon-box"><ShieldCheck size={32} /></div>
               <h4>Get Certified</h4>
-              <p>Our experts review your portfolio. Once approved, you receive the official "Nippo Verified" digital certificate.</p>
+              <p>Our experts review your portfolio. Once approved, you receive the official "ColorNest Verified" digital certificate.</p>
             </div>
             <div className="guide-step-card">
               <div className="step-number">3</div>
@@ -212,7 +212,7 @@ const Painters = () => {
           <div className="painter-join-hero">
             <div className="hero-content">
               <h2>Master the Art of Color</h2>
-              <p>Are you a professional contractor? Join our elite network to access premium projects, direct leads, and exclusive Nippo Paints certification.</p>
+              <p>Are you a professional contractor? Join our elite network to access premium projects, direct leads, and exclusive Color Nest Paints certification.</p>
               <button className="btn-join-premium" onClick={() => setShowForm(true)}>
                 Apply for Certification <ArrowRight size={20} style={{ marginLeft: '10px' }} />
               </button>

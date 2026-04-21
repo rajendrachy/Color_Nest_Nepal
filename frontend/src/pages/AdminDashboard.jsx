@@ -95,7 +95,7 @@ const AdminDashboard = () => {
         <div className="admin-header-premium">
           <div className="header-info">
             <h1>Business Overview</h1>
-            <p>Real-time analytics and performance metrics for Nippo Paints Nepal.</p>
+            <p>Real-time analytics and performance metrics for Color Nest Paints Nepal.</p>
           </div>
         </div>
         

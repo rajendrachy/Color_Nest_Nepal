@@ -25,6 +25,7 @@ const AdminWarehouses = lazy(() => import('./pages/AdminWarehouses'));
 const AdminSettings = lazy(() => import('./pages/AdminSettings'));
 const AdminPayments = lazy(() => import('./pages/AdminPayments'));
 const AdminReportLogs = lazy(() => import('./pages/AdminReportLogs'));
+const AdminColorMixing = lazy(() => import('./pages/AdminColorMixing'));
 const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
 const PaymentFailure = lazy(() => import('./pages/PaymentFailure'));
 const OrderTracking = lazy(() => import('./pages/OrderTracking'));
@@ -157,6 +158,11 @@ function App() {
                     <Route path="/admin/report-logs" element={
                       <ProtectedRoute adminOnly>
                         <AdminReportLogs />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/admin/color-mixing" element={
+                      <ProtectedRoute adminOnly>
+                        <AdminColorMixing />
                       </ProtectedRoute>
                     } />
                     

@@ -4,7 +4,7 @@ import {
   LayoutDashboard, ShoppingBag, Package, Users, 
   Warehouse, Settings, LogOut, ShieldCheck,
   UserCheck, Bell, MessageSquare, Landmark,
-  History
+  History, Palette
 } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext';
 import './Sidebar.css';
@@ -21,6 +21,7 @@ const Sidebar = () => {
     { name: 'Customers', path: '/admin/users', icon: <Users size={20} /> },
     { name: 'Painters', path: '/admin/painters', icon: <UserCheck size={20} /> },
     { name: 'Logistics', path: '/admin/warehouses', icon: <Warehouse size={20} /> },
+    { name: 'Color Lab', path: '/admin/color-mixing', icon: <Palette size={20} /> },
     { name: 'Audit Logs', path: '/admin/report-logs', icon: <History size={20} /> },
     { name: 'Config', path: '/admin/settings', icon: <Settings size={20} /> },
   ];

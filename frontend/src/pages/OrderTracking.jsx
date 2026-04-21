@@ -152,7 +152,7 @@ const OrderTracking = () => {
             <h1>Shipment ID: #{order.orderId}</h1>
           </div>
           <div className="order-id-badge">
-            <ShieldCheck size={22} style={{ marginRight: '10px' }} /> NIPPO CERTIFIED
+            <ShieldCheck size={22} style={{ marginRight: '10px' }} /> COLORNEST CERTIFIED
           </div>
         </div>
 
@@ -192,7 +192,7 @@ const OrderTracking = () => {
                     <>
                       <Marker position={agentLocation} icon={icons.agent}>
                         <Popup>
-                          <strong>Nippo Courier</strong><br />
+                          <strong>ColorNest Courier</strong><br />
                           En-route to your location
                         </Popup>
                       </Marker>

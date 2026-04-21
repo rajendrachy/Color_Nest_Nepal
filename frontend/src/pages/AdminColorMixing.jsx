@@ -95,7 +95,7 @@ const AdminColorMixing = () => {
       <div className="mixing-header">
         <div>
           <h1>Color Management & Mixing</h1>
-          <p>Smart calculator and digital formulation guide for Nippo Paints.</p>
+          <p>Smart calculator and digital formulation guide for Color Nest Paints.</p>
         </div>
         <div className="action-buttons">
           <button className="btn-export" onClick={() => toast.success('Recipe saved to library')}>

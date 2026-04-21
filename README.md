@@ -1,57 +1,77 @@
-# ColorNest Nepal - E-commerce Platform
+# Color Nest Paints E-commerce & Logistics Platform
 
-A complete MERN stack application for ColorNest with a Nepal-wide delivery system.
+Welcome to the **Color Nest Paints** platform, a comprehensive MERN stack (MongoDB, Express, React, Node.js) web application designed for a premium paint manufacturing and distribution company. 
 
-## Features
-- **User Authentication**: JWT based login/register with Nepali phone validation.
-- **Product Catalog**: Advanced filtering, search, and detailed specifications.
-- **Coverage Calculator**: In-built tool to calculate paint requirements in liters.
-- **Cart & Checkout**: VAT (13%) calculation and Nepal-specific address system.
-- **Order Tracking**: Real-time tracking with status timeline.
-- **Admin Dashboard**: Analytics, sales charts (Chart.js), and management of orders, products, and warehouses.
-- **Nepal-Specific**: Support for 7 provinces, 77 districts, eSewa, and Khalti payment logic.
+This platform serves as a modern e-commerce storefront for customers, a logistics tracker for real-time deliveries, and a powerful command center for administrators to manage inventory, sales, and color formulation.
 
-## Tech Stack
-- **Frontend**: React.js, Vite, Vanilla CSS, Lucide React, Framer Motion, Chart.js.
-- **Backend**: Node.js, Express, MongoDB, Socket.io, Nodemailer.
+## 🚀 Key Features
 
-## Setup Instructions
+### For Customers
+* **Premium Storefront**: Browse a high-end catalog of paints, coatings, and accessories with a modern, responsive UI.
+* **Smart Shopping Cart**: Seamless cart management with secure checkout integrations (eSewa & Khalti).
+* **Live Order Tracking**: A state-of-the-art logistics dashboard featuring real-time map tracking (via Leaflet & Socket.io) to monitor delivery agents.
+* **Paint Calculator**: An interactive tool to estimate paint quantity required based on room dimensions.
+* **Find a Painter**: A directory connecting customers with ColorNest Certified Professional Painters.
 
-### 1. Clone & Install
-```bash
-# Install all dependencies (Root, Backend, Frontend)
-npm run install-all
-```
+### For Administrators
+* **Business Analytics**: A real-time dashboard featuring interactive charts (Chart.js) for revenue, regional sales, and inventory alerts.
+* **Color Lab (Mixing Calculator)**: A dedicated digital formulation guide for creating custom paint recipes. Input a target color, and the system calculates the exact ratio of base paints required for production.
+* **Logistics & Warehousing**: Manage regional distribution centers and monitor stock levels across different branches.
+* **Full E-commerce Control**: Complete CRUD capabilities for Products, Orders, Users, and Professional Painters.
 
-### 2. Environment Variables
-Create a `.env` file in the `backend` folder with the following:
-```env
-MONGODB_URI=mongodb://localhost:27017/colornest
-JWT_SECRET=your_secret_key
-PORT=5000
-CLIENT_URL=http://localhost:5173
-EMAIL_HOST=smtp.gmail.com
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_email_password
-```
+## 🛠️ Technology Stack
 
-### 3. Seed Initial Data
-```bash
-npm run seed
-```
+**Frontend:**
+* React (Vite)
+* React Router DOM
+* React Leaflet (Maps)
+* Chart.js & React-ChartJS-2
+* Socket.io-Client
+* Vanilla CSS (Premium Glassmorphism Design)
+* Lucide React (Icons)
 
-### 4. Run the Application
-```bash
-npm start
-```
+**Backend:**
+* Node.js & Express.js
+* MongoDB & Mongoose
+* Socket.io (Real-time updates)
+* JSON Web Tokens (JWT) for Authentication
+* Multer (Image uploads)
+* eSewa & Khalti Payment Gateway Integration
 
-## Admin Credentials
-- **Email**: admin@colornest.com
-- **Password**: Admin@123
+## 📦 Installation & Setup
 
-## Structure
-- `/backend`: Express API and MongoDB models.
-- `/frontend`: React application with premium design.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rajendrachy/Color_Nest_Nepal.git
+   cd Color_Nest_Nepal
+   ```
 
+2. **Setup Backend**
+   ```bash
+   cd backend
+   npm install
+   # Create a .env file based on the environment requirements
+   npm run dev
+   ```
 
+3. **Setup Frontend**
+   ```bash
+   cd frontend
+   npm install
+   # Create a .env file containing VITE_API_URL
+   npm run dev
+   ```
 
+## 🔐 Environment Variables
+
+You will need to set up `.env` files in both the frontend and backend directories.
+* **Backend**: Requires `PORT`, `MONGO_URI`, `JWT_SECRET`, `ESEWA_MERCHANT_ID`, etc.
+* **Frontend**: Requires `VITE_API_URL`.
+
+## 🎨 Design Philosophy
+
+Color Nest Paints utilizes an ultra-premium "Dark Logistics" and "Glassmorphism" aesthetic. The UI is designed to evoke a sense of high-end quality, using vibrant brand accents against sleek, modern backgrounds.
+
+## 📄 License
+
+This project is proprietary and developed for Color Nest Paints Nepal.

@@ -30,7 +30,7 @@ const Register = () => {
     <div className="auth-page container">
       <div className="auth-card card">
         <h2>Create Account</h2>
-        <p>Join the Nippo Paints community.</p>
+        <p>Join the Color Nest Paints community.</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full Name</label>

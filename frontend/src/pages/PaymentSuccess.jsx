@@ -105,7 +105,7 @@ const PaymentSuccess = () => {
         
         <h1 style={{ fontSize: '2rem', marginBottom: '15px', color: 'var(--secondary)' }}>Payment Successful!</h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '40px', lineHeight: '1.6' }}>
-          Thank you for choosing Nippo Paints. Your payment was verified and your order is now being processed.
+          Thank you for choosing Color Nest Paints. Your payment was verified and your order is now being processed.
         </p>
 
         <div className="action-buttons" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>

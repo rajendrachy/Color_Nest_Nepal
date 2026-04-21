@@ -101,7 +101,7 @@ const UserDashboard = () => {
       {/* Premium Hero */}
       <div className="dashboard-hero animate-fade">
         <div className="hero-content">
-          <h1>Namaste, <span className="text-gradient">{user?.name}</span></h1>
+          <h1>Namaste <span className="waving-hand">👋</span>, <span className="text-gradient">{user?.name}</span></h1>
           <p>Welcome to your ColorNest Nepal command center. Track your premium paints, manage deliveries, and view your purchase history with ease.</p>
         </div>
         <div className="hero-stats">

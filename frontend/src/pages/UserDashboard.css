@@ -30,23 +30,58 @@
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  letter-spacing: -1.5px;
-  margin-bottom: 15px;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  background: linear-gradient(to right, var(--primary), #801426);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.text-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--primary);
+  opacity: 0.1;
+  border-radius: 4px;
+}
+
+.waving-hand {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
 }
 
 .hero-content p {
   color: #64748b;
-  font-size: 1.1rem;
-  max-width: 600px;
-  line-height: 1.7;
+  font-size: 1.15rem;
+  max-width: 650px;
+  line-height: 1.8;
+  margin-top: 10px;
 }
 
 .stat-card {
@@ -102,9 +137,11 @@
 }
 
 .title-left h2 {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 900;
   margin: 0;
+  color: #1e293b;
+  letter-spacing: -0.5px;
 }
 
 .premium-order-card {
@@ -131,10 +168,25 @@
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.order-id-val {
+.order-id-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-label {
+  font-size: 0.7rem;
   font-weight: 800;
-  font-size: 1.2rem;
-  color: #1e293b;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+
+.order-id-val {
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #0f172a;
+  letter-spacing: -0.5px;
 }
 
 .order-status-pill {
@@ -171,10 +223,21 @@
   align-items: center;
 }
 
+.total-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
 .total-val {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: var(--primary);
+  letter-spacing: -1px;
 }
 
 /* Quick Access Sidebar */

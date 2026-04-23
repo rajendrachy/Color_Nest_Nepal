@@ -46,6 +46,21 @@ router.post('/', protect, async (req, res) => {
       await user.save();
     }
 
+    // Notify Admins
+    try {
+      const admins = await User.find({ role: 'admin' });
+      const notifications = admins.map(admin => ({
+        user: admin._id,
+        title: 'New Painter Application',
+        message: `${name} has applied for a professional painter account. Review their credentials.`,
+        type: 'system',
+        link: '/admin/painters'
+      }));
+      await Notification.insertMany(notifications);
+    } catch (notifErr) {
+      console.error('Error notifying admins:', notifErr.message);
+    }
+
     res.status(201).json({
       painter,
       updatedUser: {

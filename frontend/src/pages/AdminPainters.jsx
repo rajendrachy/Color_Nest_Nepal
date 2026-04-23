@@ -4,7 +4,7 @@ import api from '../services/api';
 import { 
   Trash2, CheckCircle, XCircle, Search, Filter, 
   UserCheck, ShieldCheck, Clock, MapPin, 
-  Briefcase, Star, Mail, Phone, MoreVertical
+  Briefcase, Star, Mail, Phone, MoreVertical, FileText
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import './AdminDashboard.css';
@@ -179,6 +179,25 @@ const AdminPainters = () => {
                         ))}
                       </div>
                       <span className="exp-text"><Clock size={12} /> {p.experience} Experience</span>
+                      {p.certificate && (
+                        <a 
+                          href={p.certificate} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="certificate-link"
+                          style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '5px', 
+                            fontSize: '12px', 
+                            color: '#3b82f6', 
+                            marginTop: '5px',
+                            fontWeight: '600'
+                          }}
+                        >
+                          <FileText size={14} /> View Certificate
+                        </a>
+                      )}
                     </div>
                   </td>
                   <td>

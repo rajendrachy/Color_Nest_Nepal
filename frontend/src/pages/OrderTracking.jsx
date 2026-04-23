@@ -29,6 +29,7 @@ const OrderTracking = () => {
   const [error, setError] = useState(null);
   const [agentLocation, setAgentLocation] = useState(null);
   const [eta, setEta] = useState('Calculating...');
+  const [distance, setDistance] = useState(0);
 
   // Initialize icons inside useMemo to ensure Leaflet (L) is ready and window is available
   const icons = useMemo(() => {
@@ -58,6 +59,18 @@ const OrderTracking = () => {
     }
   }, []);
 
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distance in km
+  };
+
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -65,8 +78,22 @@ const OrderTracking = () => {
         setError(null);
         const { data } = await api.get(`/orders/${id}`);
         setOrder(data);
+        
         if (data.orderStatus === 'out_for_delivery' || data.orderStatus === 'dispatched') {
-          setAgentLocation([27.7172, 85.3240]);
+          // Hub Location: Baneshwor Hub
+          const hubLat = 27.6915;
+          const hubLng = 85.3420;
+          setAgentLocation([hubLat, hubLng]);
+          
+          const destLat = data.deliveryAddress?.coordinates?.lat || 27.7007;
+          const destLng = data.deliveryAddress?.coordinates?.lng || 85.3001;
+          
+          const dist = calculateDistance(hubLat, hubLng, destLat, destLng);
+          // Assuming 20km/h avg speed in Kathmandu traffic + 10 mins buffer
+          const timeMinutes = Math.round((dist / 20) * 60) + 10;
+          
+          setDistance(dist);
+          setEta(`${timeMinutes} mins`);
         }
       } catch (err) {
         setError(err.response?.data?.message || 'Connection to tracking system failed');
@@ -91,10 +118,16 @@ const OrderTracking = () => {
     });
 
     socket.on('delivery_location_changed', (coords) => {
-      if (coords && typeof coords.lat === 'number' && typeof coords.lng === 'number') {
+      if (coords && typeof coords.lat === 'number' && typeof coords.lng === 'number' && order) {
         setAgentLocation([coords.lat, coords.lng]);
-        const minutes = Math.floor(Math.random() * 15) + 5;
-        setEta(`${minutes} mins`);
+        
+        const destLat = order.deliveryAddress?.coordinates?.lat || 27.7007;
+        const destLng = order.deliveryAddress?.coordinates?.lng || 85.3001;
+        
+        const dist = calculateDistance(coords.lat, coords.lng, destLat, destLng);
+        const timeMinutes = Math.round((dist / 20) * 60) + 2; // Real-time buffer
+        setDistance(dist);
+        setEta(`${timeMinutes} mins`);
       }
     });
 
@@ -170,7 +203,7 @@ const OrderTracking = () => {
                 </div>
                 <div className="stat-group">
                   <label>Range</label>
-                  <span>{order.orderStatus === 'delivered' ? '0 km' : '2.4 km'}</span>
+                  <span>{order.orderStatus === 'delivered' ? '0 km' : `${distance.toFixed(1)} km`}</span>
                 </div>
               </div>
 

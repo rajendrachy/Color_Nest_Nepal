@@ -36,6 +36,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const Profile = lazy(() => import('./pages/Profile'));
 const Painters = lazy(() => import('./pages/Painters'));
 const UserDashboard = lazy(() => import('./pages/UserDashboard'));
+const PainterDashboard = lazy(() => import('./pages/PainterDashboard'));
 
 const GlobalLoader = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh', flexDirection: 'column', gap: '20px' }}>
@@ -109,6 +110,11 @@ function App() {
                     <Route path="/profile" element={
                       <ProtectedRoute>
                         <Profile />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/painter-dashboard" element={
+                      <ProtectedRoute>
+                        <PainterDashboard />
                       </ProtectedRoute>
                     } />
                     <Route path="/login" element={<Login />} />

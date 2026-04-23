@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const painterSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   name: {
     type: String,
     required: true,
@@ -31,6 +36,9 @@ const painterSchema = new mongoose.Schema({
   image: {
     type: String,
     default: 'https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&h=150&fit=crop'
+  },
+  certificate: {
+    type: String
   },
   verified: {
     type: Boolean,

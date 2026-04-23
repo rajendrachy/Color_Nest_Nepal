@@ -18,7 +18,7 @@ const seedData = async () => {
     // Create Admin User
     await User.create({
       name: 'Admin ColorNest',
-      email: 'admin@colornest.com',
+      email: 'chyrajendra32@gmail.com',
       phone: '9800000000',
       password: 'Admin@123',
       role: 'admin'

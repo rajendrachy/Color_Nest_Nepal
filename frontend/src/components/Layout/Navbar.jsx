@@ -39,12 +39,19 @@ const Navbar = () => {
 
         <div className={`nav-links ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
           <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Paints</Link>
-          <Link to="/painters" onClick={() => setIsMobileMenuOpen(false)}>Find a Painter</Link>
+          {user?.role !== 'painter' && (
+            <Link to="/painters" onClick={() => setIsMobileMenuOpen(false)}>Find a Painter</Link>
+          )}
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
           <Link to="/track" onClick={() => setIsMobileMenuOpen(false)}>Track Order</Link>
           {user?.role === 'admin' && (
             <Link to="/admin" className="admin-link" onClick={() => setIsMobileMenuOpen(false)}>
               Admin Panel
+            </Link>
+          )}
+          {user?.role === 'painter' && (
+            <Link to="/painter-dashboard" className="admin-link" style={{ background: '#c41e3a', color: 'white', fontWeight: '600' }} onClick={() => setIsMobileMenuOpen(false)}>
+              Painter Dashboard
             </Link>
           )}
         </div>
@@ -60,7 +67,7 @@ const Navbar = () => {
             <span>{language}</span>
           </button>
 
-          {user?.role !== 'admin' && (
+          {user?.role !== 'admin' && user?.role !== 'painter' && (
             <Link to="/cart" className="cart-icon" onClick={() => setIsMobileMenuOpen(false)}>
               <ShoppingCart size={24} />
               {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
@@ -69,7 +76,7 @@ const Navbar = () => {
 
           {user ? (
             <div className="user-menu" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '15px' }}>
-              {user.role !== 'admin' && (
+              {user.role !== 'admin' && user.role !== 'painter' && (
                 <Link to="/dashboard" className="my-orders-link" style={{ fontWeight: '500', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '5px' }}>
                   <Package size={18} /> My Orders
                 </Link>

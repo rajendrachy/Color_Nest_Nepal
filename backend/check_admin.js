@@ -5,7 +5,7 @@ const User = require('./models/User');
 const checkAdmin = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    const admin = await User.findOne({ email: 'admin@colornest.com' });
+    const admin = await User.findOne({ email: 'chyrajendra32@gmail.com' });
     if (admin) {
       console.log('Admin user found:', admin.email);
       console.log('Role:', admin.role);

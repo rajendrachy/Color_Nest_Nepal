@@ -4,6 +4,7 @@ const Paint = require('../models/Paint');
 const Warehouse = require('../models/Warehouse');
 const Setting = require('../models/Setting');
 const ReportLog = require('../models/ReportLog');
+const Notification = require('../models/Notification');
 
 
 exports.getSettings = async (req, res) => {
@@ -92,6 +93,19 @@ exports.updateOrderStatus = async (req, res) => {
     }
 
     await order.save();
+
+    // Create Notification for User
+    try {
+      await Notification.create({
+        user: order.user,
+        title: 'Order Status Updated',
+        message: `Your order ${order.orderId} is now ${status.replace(/_/g, ' ')}.`,
+        type: 'order',
+        link: '/dashboard'
+      });
+    } catch (notifErr) {
+      console.error('Error creating notification:', notifErr.message);
+    }
 
     // Emit socket event for real-time tracking
     const io = req.app.get('socketio');

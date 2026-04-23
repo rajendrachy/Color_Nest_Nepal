@@ -49,9 +49,22 @@ const Products = () => {
     <div className="products-container">
       {/* Products Page Header */}
       <div className="products-banner">
-        <div className="banner-content">
-          <h1>Premium Paint Collection</h1>
-          <p>Discover our wide range of durable, eco-friendly colors for every surface.</p>
+        <div className="banner-content-wrapper container">
+          <div className="banner-text">
+            <h1>Premium Paint Collection</h1>
+            <p>Discover our wide range of durable, eco-friendly colors for every surface, from luxury interiors to industrial exteriors.</p>
+          </div>
+          <div className="banner-image-wrapper">
+            <img 
+              src="https://images.unsplash.com/photo-1595853035070-59a39fe84de3?auto=format&fit=crop&q=80&w=1000" 
+              alt="Premium Paint Finish" 
+              className="banner-featured-img"
+              onError={(e) => {
+                console.error("Banner image failed to load");
+                e.target.src = "https://via.placeholder.com/600x400?text=Premium+Paints";
+              }}
+            />
+          </div>
         </div>
       </div>
 

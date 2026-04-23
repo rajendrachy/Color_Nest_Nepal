@@ -114,7 +114,9 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/delivery', deliveryRoutes);
 const painterRoutes = require('./routes/painterRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 app.use('/api/painters', painterRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

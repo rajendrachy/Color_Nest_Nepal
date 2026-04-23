@@ -32,7 +32,9 @@ exports.register = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
       avatar: user.avatar,
+      address: user.address,
       role: user.role,
       token: generateToken(user._id)
     });
@@ -75,7 +77,9 @@ exports.login = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        phone: user.phone,
         avatar: user.avatar,
+        address: user.address,
         role: user.role,
         cart: user.cart,
         token: generateToken(user._id)
@@ -110,7 +114,9 @@ exports.verify2FA = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
       avatar: user.avatar,
+      address: user.address,
       role: user.role,
       cart: user.cart,
       token: generateToken(user._id)

@@ -2,6 +2,7 @@ const Order = require('../models/Order');
 const Paint = require('../models/Paint');
 const { VAT_RATE } = require('../config/constants');
 const { generateEsewaSignature } = require('../utils/paymentUtils');
+const Notification = require('../models/Notification');
 
 exports.createOrder = async (req, res) => {
   try {
@@ -67,6 +68,19 @@ exports.createOrder = async (req, res) => {
     });
 
     const createdOrder = await order.save();
+
+    // Create Notification
+    try {
+      await Notification.create({
+        user: req.user._id,
+        title: 'Order Placed Successfully',
+        message: `Your order ${createdOrder.orderId} has been placed. Total: रू ${createdOrder.totalAmount}`,
+        type: 'order',
+        link: '/dashboard'
+      });
+    } catch (notifErr) {
+      console.error('Error creating notification:', notifErr.message);
+    }
     res.status(201).json(createdOrder);
   } catch (error) {
     console.error('Order Creation Error:', error);

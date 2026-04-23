@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut, Menu, Search, Globe, Package } from 'lucide-react';
+import { ShoppingCart, User, LogOut, Menu, Search, Globe, Package, Bell } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext';
 import { CartContext } from '../../context/CartContext';
+import NotificationPanel from '../NotificationPanel';
 import toast from 'react-hot-toast';
+import api from '../../services/api';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -12,6 +14,27 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [language, setLanguage] = React.useState('EN');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isNotifOpen, setIsNotifOpen] = React.useState(false);
+  const [unreadCount, setUnreadCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (user) {
+      fetchUnreadCount();
+      // Polling for notifications every 30 seconds
+      const interval = setInterval(fetchUnreadCount, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [user]);
+
+  const fetchUnreadCount = async () => {
+    try {
+      const { data } = await api.get('/notifications');
+      const count = data.filter(n => !n.isRead).length;
+      setUnreadCount(count);
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -50,7 +73,7 @@ const Navbar = () => {
             </Link>
           )}
           {user?.role === 'painter' && (
-            <Link to="/painter-dashboard" className="admin-link" style={{ background: '#c41e3a', color: 'white', fontWeight: '600' }} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/painter-dashboard" className="nav-link-special" onClick={() => setIsMobileMenuOpen(false)}>
               Painter Dashboard
             </Link>
           )}
@@ -76,6 +99,23 @@ const Navbar = () => {
 
           {user ? (
             <div className="user-menu" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '15px' }}>
+              
+              <div className="notif-wrapper" style={{ position: 'relative' }}>
+                <button 
+                  className="nav-icon-btn" 
+                  onClick={() => setIsNotifOpen(!isNotifOpen)}
+                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', position: 'relative', color: '#1e293b', padding: '5px', display: 'flex', alignItems: 'center' }}
+                >
+                  <Bell size={22} />
+                  {unreadCount > 0 && (
+                    <span className="notif-badge" style={{ position: 'absolute', top: '0px', right: '0px', background: '#ef4444', color: 'white', fontSize: '0.65rem', padding: '1px 4px', borderRadius: '50%', minWidth: '14px', fontWeight: 'bold' }}>
+                      {unreadCount}
+                    </span>
+                  )}
+                </button>
+                <NotificationPanel isOpen={isNotifOpen} setIsOpen={setIsNotifOpen} />
+              </div>
+
               {user.role !== 'admin' && user.role !== 'painter' && (
                 <Link to="/dashboard" className="my-orders-link" style={{ fontWeight: '500', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '5px' }}>
                   <Package size={18} /> My Orders

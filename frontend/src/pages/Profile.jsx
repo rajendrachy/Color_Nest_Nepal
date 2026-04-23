@@ -106,7 +106,10 @@ const Profile = () => {
           </div>
           <div className="profile-title">
             <h2>User Profile</h2>
-            <p className="badge">Current Dashboard: <strong>{user?.role === 'admin' ? 'Admin Panel' : 'Customer Dashboard'}</strong></p>
+            <p className="badge">Current Dashboard: <strong>
+              {user?.role === 'admin' ? 'Admin Panel' : 
+               user?.role === 'painter' ? 'Painter Dashboard' : 'Customer Dashboard'}
+            </strong></p>
           </div>
         </div>
 
